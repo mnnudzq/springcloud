@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.dzqtest.springcloud</groupId>
-            <artifactId>cloud.commons</artifactId>
+            <artifactId>cloud-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!--包含了sleuth+zipkin;sleuth链路监控展现-->
