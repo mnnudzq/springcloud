@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @Slf4j
@@ -66,5 +67,15 @@ public class PaymentController {
             log.info("serviceId:[{}], 主机名称:[{}], 端口号:[{}], url地址:[{}]", instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
         }
         return discoveryClient;
+    }
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String timeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        }catch (InterruptedException e) {
+            log.error(e.getMessage());
+        }
+        return serverPort;
     }
 }
